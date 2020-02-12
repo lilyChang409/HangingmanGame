@@ -10,7 +10,21 @@ private String new4="";
 private String new5="";
 private boolean true1=true;
     public Puzzle(){
- this.puzzle="star";  
+        this.puzzle = new ArrayList<String>();
+        try {
+            File file = new File("words.txt");
+            Scanner scanner = new Scanner(file);
+
+            while (scanner.hasNext()) {
+                String tempWord = scanner.next().toUpperCase();
+                this.puzzle.add(tempWord);
+            }
+            scanner.close();
+			
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
    
 }
     public boolean isUnsolved(){
