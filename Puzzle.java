@@ -66,12 +66,7 @@ private boolean true1=true;
           j--;
         }
     }
-    if(new5.length()>=this.puzzle.length()){
-    for(int i=0;i<new5.length();i++){
-       
-       
-    }
-}
+  
        System.out.println(" ");
        System.out.print("Wrong:");
      
