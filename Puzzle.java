@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 public class Puzzle
 {  private String puzzle;
+   private String word;
    private String new1="";
    private String new3="";
 private String new4="";
@@ -28,10 +29,13 @@ private boolean true1=true;
    
 }
     public boolean isUnsolved(){
-       if(true1){
-          return true; 
-        }else{
-            return false;}
+      for (int i = 0; i < word.length(); i++) {
+            if (!guesses.contains(""+word.charAt(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
     }
     public boolean makeGuess(String guess){
         if(puzzle.contains(guess)){
@@ -46,34 +50,29 @@ private boolean true1=true;
         }  
     }
    public void show(){
-       int j=this.puzzle.length();
-        new4=new4+" "+new3;
-        new5=new5+new1;
-      for(int i=0;i<new5.length();i++){
-         
-    for(int z=0;z<this.puzzle.length();z++){
-        String new6=new5.substring(i,i+1);
-        String new2=this.puzzle.substring(z,z+1);
-             if(new6.equals(new2)){
-                 System.out.print(new6);
-                 j--;
-        }else{
-           System.out.print("_");  
-        j--;}
+       int i = 0;
+       System.out.print("puzzle: ");
+        while (i < word.length()) {
+            if (guesses.contains(""+word.charAt(i))) {
+                System.out.print(word.charAt(i) + " ");
+            } else {
+                System.out.print("_ ");
+            }
+            i++;
         }
-      while(j>0){
-           System.out.print("_");  
-          j--;
+
+        System.out.print("\n\nGuesses: ");
+        int j = 0;
+        while (j < guesses.length()) {
+            System.out.print(guesses.charAt(j));
+            j++;
+            if (j != guesses.length()) {
+                System.out.print(", ");
+            }
         }
-    }
-  
-       System.out.println(" ");
-       System.out.print("Wrong:");
-     
-         System.out.print(new4);
     }
     public String getWord(){
-     return this.puzzle;  
+     return word;  
        
     }
 }
