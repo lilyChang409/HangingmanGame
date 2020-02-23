@@ -6,9 +6,6 @@ public class Puzzle
 {  private String puzzle;
    private String word;
    private String new1="";
-   private String new3="";
-private String new4="";
-private String new5="";
 private boolean true1=true;
     public Puzzle(){
         this.puzzle = new ArrayList<String>();
@@ -53,21 +50,21 @@ private boolean true1=true;
        int i = 0;
        System.out.print("puzzle: ");
         while (i < word.length()) {
-            if (guesses.contains(""+word.charAt(i))) {
+            if (guess.contains(""+word.charAt(i))) {
                 System.out.print(word.charAt(i) + " ");
             } else {
-                System.out.print("_ ");
+                System.out.print("_");
             }
             i++;
         }
 
-        System.out.print("\n\nGuesses: ");
+        System.out.println("Guesses: ");
         int j = 0;
-        while (j < guesses.length()) {
-            System.out.print(guesses.charAt(j));
+        while (j < guess.length()) {
+            System.out.print(guess.charAt(j));
             j++;
-            if (j != guesses.length()) {
-                System.out.print(", ");
+            if (j != guess.length()) {
+                System.out.print(",");
             }
         }
     }
